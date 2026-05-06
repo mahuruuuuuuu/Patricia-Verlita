@@ -186,30 +186,53 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let stars = [];
-for(let i=0;i<100;i++){
+
+for(let i=0;i<120;i++){
   stars.push({
     x: Math.random()*canvas.width,
     y: Math.random()*canvas.height,
-    size: Math.random()*2
+    size: Math.random()*2,
+    speed: Math.random()*0.3,
+    opacity: Math.random(),
+    fade: Math.random()*0.02
   });
 }
 
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "white";
 
   stars.forEach(s=>{
+    // twinkle effect
+    s.opacity += s.fade;
+
+    if(s.opacity <= 0 || s.opacity >= 1){
+      s.fade *= -1;
+    }
+
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.size, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(255,255,255," + s.opacity + ")";
     ctx.fill();
 
-    s.y += 0.3;
-    if(s.y > canvas.height) s.y = 0;
+    // gerak pelan ke bawah
+    s.y += s.speed;
+
+    if(s.y > canvas.height){
+      s.y = 0;
+      s.x = Math.random()*canvas.width;
+    }
   });
 
   requestAnimationFrame(draw);
 }
+
 draw();
+
+// RESPONSIVE
+window.addEventListener("resize", ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
