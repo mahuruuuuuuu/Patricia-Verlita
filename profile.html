@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tarot Game</title>
+  <title>Tarot Reading</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <style>
@@ -9,6 +9,10 @@
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
       text-align:center;
+    }
+
+    .glow {
+      text-shadow: 0 0 10px #c77dff;
     }
 
     .card-container {
@@ -41,7 +45,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:30px;
+      font-size:20px;
     }
 
     .card-back {
@@ -54,14 +58,19 @@
       border-radius:10px;
     }
 
-    #result {
-      margin-top:20px;
+    .result-box {
+      margin-top:30px;
+      padding:20px;
+      border-radius:15px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      box-shadow:0 0 20px #9d4edd;
       opacity:0;
       transition:0.5s;
     }
 
     .show {
-      opacity:1 !important;
+      opacity:1;
     }
   </style>
 </head>
@@ -70,58 +79,82 @@
 
 <a href="index.html" class="btn btn-outline-light m-3">⬅ Back</a>
 
-<h1 class="glow">🔮 Pick Your Card</h1>
+<h1 class="glow">🔮 Past • Present • Future</h1>
+<p>Click all cards to reveal your destiny</p>
 
 <div class="d-flex justify-content-center gap-4 mt-4">
 
+  <!-- PAST -->
   <div class="card-container" onclick="flipCard(this,0)">
     <div class="card-inner">
-      <div class="card-front">?</div>
+      <div class="card-front">Past</div>
       <div class="card-back"><img id="img0"></div>
     </div>
   </div>
 
+  <!-- PRESENT -->
   <div class="card-container" onclick="flipCard(this,1)">
     <div class="card-inner">
-      <div class="card-front">?</div>
+      <div class="card-front">Present</div>
       <div class="card-back"><img id="img1"></div>
     </div>
   </div>
 
+  <!-- FUTURE -->
   <div class="card-container" onclick="flipCard(this,2)">
     <div class="card-inner">
-      <div class="card-front">?</div>
+      <div class="card-front">Future</div>
       <div class="card-back"><img id="img2"></div>
     </div>
   </div>
 
 </div>
 
-<h3 id="result"></h3>
+<div id="result" class="result-box"></div>
 
 <script>
-let chosen = false;
+let flippedCount = 0;
 
 const tarot = [
-  {name:"The Fool", desc:"New beginning", img:"https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_00_Fool.jpg"},
+  {name:"The Fool", desc:"New beginning & adventure", img:"https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_00_Fool.jpg"},
   {name:"The Magician", desc:"Power & action", img:"https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg"},
-  {name:"High Priestess", desc:"Intuition", img:"https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg"}
+  {name:"High Priestess", desc:"Intuition & mystery", img:"https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg"},
+  {name:"The Empress", desc:"Growth & nurturing", img:"https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg"}
 ];
 
-function flipCard(card,index){
-  if(chosen) return;
-  chosen = true;
+let results = ["","",""];
 
+function flipCard(card,index){
   let inner = card.querySelector(".card-inner");
+
+  if(inner.classList.contains("flipped")) return;
+
   inner.classList.add("flipped");
 
   let r = Math.floor(Math.random()*tarot.length);
 
   document.getElementById("img"+index).src = tarot[r].img;
 
-  let result = document.getElementById("result");
-  result.innerText = tarot[r].name + " - " + tarot[r].desc;
-  result.classList.add("show");
+  results[index] = tarot[r].name + " → " + tarot[r].desc;
+
+  flippedCount++;
+
+  if(flippedCount === 3){
+    showResult();
+  }
+}
+
+function showResult(){
+  let text = `
+  <h4 class="glow">Your Reading ✨</h4>
+  <p><b>Past:</b> ${results[0]}</p>
+  <p><b>Present:</b> ${results[1]}</p>
+  <p><b>Future:</b> ${results[2]}</p>
+  `;
+
+  let resultBox = document.getElementById("result");
+  resultBox.innerHTML = text;
+  resultBox.classList.add("show");
 }
 </script>
 
