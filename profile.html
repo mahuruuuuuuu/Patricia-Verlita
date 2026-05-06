@@ -12,7 +12,7 @@
     }
 
     .glow {
-      text-shadow: 0 0 10px #c77dff;
+      text-shadow: 0 0 12px #c77dff;
     }
 
     .card-container {
@@ -26,6 +26,10 @@
       transition: transform 0.8s;
       transform-style: preserve-3d;
       position:relative;
+    }
+
+    .card-inner:hover {
+      box-shadow: 0 0 25px #c77dff;
     }
 
     .flipped {
@@ -45,7 +49,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:20px;
+      font-size:18px;
     }
 
     .card-back {
@@ -56,6 +60,7 @@
       width:100%;
       height:100%;
       border-radius:10px;
+      object-fit:cover;
     }
 
     .result-box {
@@ -88,7 +93,9 @@
   <div class="card-container" onclick="flipCard(this,0)">
     <div class="card-inner">
       <div class="card-front">Past</div>
-      <div class="card-back"><img id="img0"></div>
+      <div class="card-back">
+        <img id="img0" onerror="this.onerror=null; this.src='https://picsum.photos/200/300?random=11';">
+      </div>
     </div>
   </div>
 
@@ -96,7 +103,9 @@
   <div class="card-container" onclick="flipCard(this,1)">
     <div class="card-inner">
       <div class="card-front">Present</div>
-      <div class="card-back"><img id="img1"></div>
+      <div class="card-back">
+        <img id="img1" onerror="this.onerror=null; this.src='https://picsum.photos/200/300?random=12';">
+      </div>
     </div>
   </div>
 
@@ -104,7 +113,9 @@
   <div class="card-container" onclick="flipCard(this,2)">
     <div class="card-inner">
       <div class="card-front">Future</div>
-      <div class="card-back"><img id="img2"></div>
+      <div class="card-back">
+        <img id="img2" onerror="this.onerror=null; this.src='https://picsum.photos/200/300?random=13';">
+      </div>
     </div>
   </div>
 
@@ -116,106 +127,13 @@
 let flippedCount = 0;
 
 const tarot = [
-  {
-    name:"The Fool",
-    desc:"New beginning & adventure",
-    img:"https://upload.wikimedia.org/wikipedia/en/d/d4/RWS_Tarot_00_Fool.jpg"
-  },
-  {
-    name:"The Magician",
-    desc:"Power & action",
-    img:"https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"
-  },
-  {
-    name:"The High Priestess",
-    desc:"Intuition & mystery",
-    img:"https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"
-  },
-  {
-    name:"The Empress",
-    desc:"Growth & nurturing",
-    img:"https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"
-  },
-  {
-    name:"The Emperor",
-    desc:"Authority & structure",
-    img:"https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"
-  },
-  {
-    name:"The Hierophant",
-    desc:"Tradition & wisdom",
-    img:"https://upload.wikimedia.org/wikipedia/en/8/8d/RWS_Tarot_05_Hierophant.jpg"
-  },
-  {
-    name:"The Lovers",
-    desc:"Love & harmony",
-    img:"https://upload.wikimedia.org/wikipedia/en/3/3a/TheLovers.jpg"
-  },
-  {
-    name:"The Chariot",
-    desc:"Victory & determination",
-    img:"https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg"
-  },
-  {
-    name:"Strength",
-    desc:"Courage & patience",
-    img:"https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg"
-  },
-  {
-    name:"The Hermit",
-    desc:"Reflection & solitude",
-    img:"https://upload.wikimedia.org/wikipedia/en/4/4d/RWS_Tarot_09_Hermit.jpg"
-  },
-  {
-    name:"Wheel of Fortune",
-    desc:"Change & destiny",
-    img:"https://upload.wikimedia.org/wikipedia/en/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg"
-  },
-  {
-    name:"Justice",
-    desc:"Fairness & truth",
-    img:"https://upload.wikimedia.org/wikipedia/en/e/e0/RWS_Tarot_11_Justice.jpg"
-  },
-  {
-    name:"The Hanged Man",
-    desc:"Sacrifice & new perspective",
-    img:"https://upload.wikimedia.org/wikipedia/en/2/2b/RWS_Tarot_12_Hanged_Man.jpg"
-  },
-  {
-    name:"Death",
-    desc:"Transformation & change",
-    img:"https://upload.wikimedia.org/wikipedia/en/d/d7/RWS_Tarot_13_Death.jpg"
-  },
-  {
-    name:"Temperance",
-    desc:"Balance & harmony",
-    img:"https://upload.wikimedia.org/wikipedia/en/f/f8/RWS_Tarot_14_Temperance.jpg"
-  },
-  {
-    name:"The Devil",
-    desc:"Temptation & limitation",
-    img:"https://upload.wikimedia.org/wikipedia/en/5/55/RWS_Tarot_15_Devil.jpg"
-  },
-  {
-    name:"The Tower",
-    desc:"Sudden change & chaos",
-    img:"https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg"
-  },
-  {
-    name:"The Star",
-    desc:"Hope & inspiration",
-    img:"https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg"
-  },
-  {
-    name:"The Moon",
-    desc:"Illusion & fear",
-    img:"https://upload.wikimedia.org/wikipedia/en/7/7f/RWS_Tarot_18_Moon.jpg"
-  },
-  {
-    name:"The Sun",
-    desc:"Success & positivity",
-    img:"https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg"
-  }
+  {name:"The Fool", desc:"New beginning & adventure", img:"https://upload.wikimedia.org/wikipedia/en/d/d4/RWS_Tarot_00_Fool.jpg"},
+  {name:"The Magician", desc:"Power & action", img:"https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"},
+  {name:"High Priestess", desc:"Intuition & mystery", img:"https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"},
+  {name:"The Empress", desc:"Growth & nurturing", img:"https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"},
+  {name:"The Emperor", desc:"Authority & structure", img:"https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"},
+  {name:"The Lovers", desc:"Love & harmony", img:"https://upload.wikimedia.org/wikipedia/en/3/3a/TheLovers.jpg"},
+  {name:"The Sun", desc:"Success & positivity", img:"https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg"}
 ];
 
 let results = ["","",""];
@@ -228,6 +146,11 @@ function flipCard(card,index){
   inner.classList.add("flipped");
 
   let r = Math.floor(Math.random()*tarot.length);
+
+  // biar ga dobel kartu
+  while(results.includes(tarot[r].name)){
+    r = Math.floor(Math.random()*tarot.length);
+  }
 
   document.getElementById("img"+index).src = tarot[r].img;
 
