@@ -9,6 +9,7 @@
       margin:0;
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
+      overflow-x:hidden;
     }
 
     canvas {
@@ -19,13 +20,43 @@
     }
 
     .glow {
-      text-shadow: 0 0 10px #c77dff;
+      text-shadow: 0 0 10px #c77dff, 0 0 20px #9d4edd;
     }
 
     section {
       padding:80px 0;
     }
 
+    /* NAVBAR BUTTON */
+    .navbar .btn {
+      color:white;
+    }
+
+    .navbar .btn:hover {
+      box-shadow:0 0 12px #c77dff;
+      border-color:#c77dff;
+    }
+
+    /* TAROT BUTTON */
+    .tarot-btn {
+      display:inline-block;
+      padding:14px 34px;
+      border-radius:40px;
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      background: linear-gradient(135deg, #7b2cbf, #5a189a);
+      box-shadow:0 0 20px rgba(199,125,255,0.4);
+      transition:0.3s;
+    }
+
+    .tarot-btn:hover {
+      transform:scale(1.05);
+      box-shadow:0 0 25px rgba(199,125,255,0.8);
+      color:white;
+    }
+
+    /* CARD */
     .card {
       background:#240046;
       border:none;
@@ -48,9 +79,9 @@
   <div class="container">
     <a class="navbar-brand glow" href="#">🔮 Tarot World</a>
     <div>
-      <a href="#features" class="btn btn-outline-light btn-sm">Features</a>
-      <a href="#about" class="btn btn-outline-light btn-sm">About</a>
-      <a href="#contact" class="btn btn-outline-light btn-sm">Contact</a>
+      <a href="#features" class="btn btn-outline-light btn-sm mx-1">Features</a>
+      <a href="#about" class="btn btn-outline-light btn-sm mx-1">About</a>
+      <a href="#contact" class="btn btn-outline-light btn-sm mx-1">Contact</a>
     </div>
   </div>
 </nav>
@@ -60,7 +91,7 @@
   <div class="container">
     <h1 class="display-3 glow">Discover Your Fate</h1>
     <p class="lead">Explore mystical tarot cards and reveal your destiny</p>
-    <a href="profile.html" class="btn btn-light m-2">Start Reading</a>
+    <a href="profile.html" class="tarot-btn mt-3">Start Reading ✨</a>
   </div>
 </section>
 
@@ -87,7 +118,7 @@
       <div class="col-md-4">
         <div class="card p-3">
           <h4>✨ Interactive</h4>
-          <p>Fun and engaging animations</p>
+          <p>Fun animations & game experience</p>
         </div>
       </div>
     </div>
@@ -99,13 +130,13 @@
   <div class="container text-center">
     <h2 class="glow mb-4">🌌 About Us</h2>
     <p>
-      Tarot World is a mystical platform designed to help you explore
-      the meaning behind tarot cards in a fun and interactive way.
+      Tarot World is a mystical platform designed to explore tarot cards 
+      in a fun, interactive, and aesthetic way.
     </p>
   </div>
 </section>
 
-<!-- PRICING (OPSIONAL) -->
+<!-- PRICING -->
 <section>
   <div class="container text-center">
     <h2 class="glow mb-4">💎 Pricing</h2>
@@ -121,7 +152,7 @@
       <div class="col-md-4">
         <div class="card p-3">
           <h4>Premium</h4>
-          <p>Advanced insights (coming soon)</p>
+          <p>Advanced insight (coming soon)</p>
         </div>
       </div>
     </div>
