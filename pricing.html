@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>Pricing</title>
 
   <meta charset="UTF-8">
@@ -10,62 +11,240 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <style>
+
     body{
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
-    }
-
-    .price-card{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      transition:0.3s;
-    }
-
-    .price-card:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 20px #c77dff;
+      font-family:Arial, sans-serif;
     }
 
     .glow{
       text-shadow:0 0 10px #c77dff;
     }
+
+    /* NAVBAR */
+
+    .navbar{
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-link{
+      color:white !important;
+      transition:0.3s;
+    }
+
+    .nav-link:hover{
+      color:#c77dff !important;
+      text-shadow:0 0 10px #c77dff;
+    }
+
+    /* CARD */
+
+    .price-card{
+      background:rgba(255,255,255,0.05);
+      padding:35px;
+      border-radius:20px;
+      transition:0.3s;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+      height:100%;
+    }
+
+    .price-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 25px #c77dff;
+    }
+
+    .price{
+      font-size:45px;
+      font-weight:bold;
+      margin:20px 0;
+      color:#e0aaff;
+    }
+
+    .btn-tarot{
+      background:linear-gradient(135deg,#7b2cbf,#5a189a);
+      color:white;
+      border:none;
+      padding:12px 25px;
+      border-radius:30px;
+      transition:0.3s;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:15px;
+    }
+
+    .btn-tarot:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px #c77dff;
+      color:white;
+    }
+
+    footer{
+      margin-top:60px;
+      background:#0d001f;
+      padding:20px;
+      text-align:center;
+    }
+
   </style>
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
   <div class="container">
-    <a href="index.html" class="navbar-brand glow">🔮 Tarot World</a>
+
+    <a class="navbar-brand glow" href="index.html">
+      🔮 Tarot World
+    </a>
+
+    <!-- MOBILE BUTTON -->
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="features.html">
+            Features
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            About Us
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="pricing.html">
+            Pricing
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="card.html">
+            Cards
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            Reading
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
   </div>
+
 </nav>
 
+<!-- PRICING -->
 <div class="container py-5">
 
-  <h1 class="text-center glow mb-5">💎 Pricing Plans</h1>
+  <h1 class="text-center glow mb-5">
+    💎 Pricing Plans
+  </h1>
 
   <div class="row justify-content-center g-4">
 
+    <!-- FREE -->
     <div class="col-md-4">
+
       <div class="price-card text-center">
-        <h2>Free</h2>
-        <h3>$0</h3>
-        <p>Basic tarot reading</p>
+
+        <h2>Free Plan</h2>
+
+        <div class="price">
+          $0
+        </div>
+
+        <p>
+          ✔ Basic tarot reading
+        </p>
+
+        <p>
+          ✔ 3 random cards
+        </p>
+
+        <p>
+          ✔ Free access forever
+        </p>
+
+        <a href="profile.html" class="btn-tarot">
+          Start Free
+        </a>
+
       </div>
+
     </div>
 
+    <!-- PREMIUM -->
     <div class="col-md-4">
+
       <div class="price-card text-center">
-        <h2>Premium</h2>
-        <h3>$9</h3>
-        <p>Advanced tarot insight and exclusive cards</p>
+
+        <h2>Premium Plan</h2>
+
+        <div class="price">
+          $9
+        </div>
+
+        <p>
+          ✔ Exclusive tarot cards
+        </p>
+
+        <p>
+          ✔ Advanced destiny reading
+        </p>
+
+        <p>
+          ✔ Premium mystical themes
+        </p>
+
+        <a href="profile.html" class="btn-tarot">
+          Go Premium
+        </a>
+
       </div>
+
     </div>
 
   </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+
+  ✨ Tarot World | Magical Experience Awaits
+
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
