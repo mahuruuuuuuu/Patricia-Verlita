@@ -9,6 +9,49 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <style>
+    .navbar{
+      backdrop-filter:blur(10px);
+    }
+    
+    .nav-link{
+      color:white !important;
+      transition:0.3s;
+    }
+    
+    .nav-link:hover{
+      color:#c77dff !important;
+      text-shadow:0 0 10px #c77dff;
+    }
+    
+    .card{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      overflow:hidden;
+      transition:0.4s;
+      cursor:pointer;
+    }
+    
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 25px #c77dff;
+    }
+    
+    .card img{
+      height:350px;
+      object-fit:cover;
+    }
+    
+    .modal-content{
+      background:#1a0033;
+      color:white;
+      border-radius:20px;
+    }
+    
+    footer{
+      background:#0d001f;
+    } 
     body {
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
@@ -49,96 +92,292 @@
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <a href="index.html" class="navbar-brand glow">🔮 Tarot World</a>
-  </div>
-</nav>
-
-<div class="container mt-4">
-  <h2 class="text-center glow mb-4">✨ Tarot Gallery</h2>
-
-  <div class="row g-4">
-
-    <!-- CARD 1 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('The Fool','New beginning & adventure','https://upload.wikimedia.org/wikipedia/en/d/d4/RWS_Tarot_00_Fool.jpg')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkiA21aSSZKy7hNJX1MdpDahGjKaGLxVcdQ&s">
-        <div class="card-body text-center"><h5>The Fool</h5></div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    
+      <div class="container">
+    
+        <a href="index.html" class="navbar-brand glow">
+          🔮 Tarot World
+        </a>
+    
+        <!-- MOBILE BUTTON -->
+        <button class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu">
+    
+          <span class="navbar-toggler-icon"></span>
+    
+        </button>
+    
+        <!-- MENU -->
+        <div class="collapse navbar-collapse justify-content-end" id="menu">
+    
+          <ul class="navbar-nav">
+    
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                Home
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="features.html">
+                Features
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">
+                About Us
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="pricing.html">
+                Pricing
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link active" href="card.html">
+                Cards
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                Reading
+              </a>
+            </li>
+    
+          </ul>
+    
+        </div>
+    
       </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('The Magician','Power & action','https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg8doieXR6JVstpcT9IR8HO0sbFdRqxaJnoQ&s">
-        <div class="card-body text-center"><h5>The Magician</h5></div>
+    
+    </nav>
+    
+    <!-- TITLE -->
+    <div class="container mt-5">
+    
+      <h1 class="text-center glow mb-3">
+        ✨ Tarot Gallery
+      </h1>
+    
+      <p class="text-center mb-5">
+        Explore mystical tarot cards and discover their meanings.
+      </p>
+    
+      <div class="row g-4">
+    
+        <!-- CARD 1 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'The Fool',
+          'New beginning & adventure',
+          'https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_00_Fool.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_00_Fool.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>The Fool</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CARD 2 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'The Magician',
+          'Power & action',
+          'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>The Magician</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CARD 3 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'High Priestess',
+          'Intuition & mystery',
+          'https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>High Priestess</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CARD 4 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'The Emperor',
+          'Authority & structure',
+          'https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>The Emperor</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CARD 5 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'The Lovers',
+          'Love & harmony',
+          'https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>The Lovers</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CARD 6 -->
+        <div class="col-md-4 col-sm-6">
+    
+          <div class="card"
+          onclick="openModal(
+          'The Sun',
+          'Success & positivity',
+          'https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg'
+          )">
+    
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg"
+            class="card-img-top">
+    
+            <div class="card-body text-center">
+    
+              <h5>The Sun</h5>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
       </div>
+    
     </div>
-
-    <!-- CARD 3 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('High Priestess','Intuition & mystery','https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3CwQaMKsTzMTEsNkJu8auKp5mnSyhTav8Tw&s">
-        <div class="card-body text-center"><h5>High Priestess</h5></div>
+    
+    <!-- MODAL -->
+    <div class="modal fade" id="cardModal">
+    
+      <div class="modal-dialog modal-dialog-centered">
+    
+        <div class="modal-content text-center p-4">
+    
+          <h3 id="modalTitle" class="glow"></h3>
+    
+          <img id="modalImg"
+          class="img-fluid rounded my-3">
+    
+          <p id="modalDesc"></p>
+    
+          <button class="btn btn-light"
+          data-bs-dismiss="modal">
+    
+            Close
+    
+          </button>
+    
+        </div>
+    
       </div>
+    
     </div>
+    
+    <!-- FOOTER -->
+    <footer class="text-center mt-5 p-4">
+    
+      ✨ Tarot World | Mystical Card Collection
+    
+    </footer>
+    
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- MODAL SCRIPT -->
+    <script>
+    
+    function openModal(name, desc, img){
+    
+      document.getElementById("modalTitle").innerText = name;
+    
+      document.getElementById("modalDesc").innerText = desc;
+    
+      document.getElementById("modalImg").src = img;
+    
+      let modal =
+      new bootstrap.Modal(
+      document.getElementById("cardModal")
+      );
+    
+      modal.show();
+    
+    }
 
-    <!-- CARD 4 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('The Emperor','Authority & structure','https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUggtsclXxI_oYtdjuAA0WA-8dGQoMgL-PXQ&s">
-        <div class="card-body text-center"><h5>The Emperor</h5></div>
-      </div>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('The Lovers','Love & harmony','https://upload.wikimedia.org/wikipedia/en/3/3a/TheLovers.jpg')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_06_Lovers.jpg/250px-RWS_Tarot_06_Lovers.jpg">
-        <div class="card-body text-center"><h5>The Lovers</h5></div>
-      </div>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="col-md-4">
-      <div class="card" onclick="openModal('The Sun','Success & positivity','https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/960px-RWS_Tarot_19_Sun.jpg">
-        <div class="card-body text-center"><h5>The Sun</h5></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal fade" id="cardModal">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center p-3">
-
-      <h3 id="modalTitle"></h3>
-      <img id="modalImg" class="my-3" style="width:200px;">
-      <p id="modalDesc"></p>
-
-      <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
-
-    </div>
-  </div>
-</div>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-function openModal(name, desc, img){
-  document.getElementById("modalTitle").innerText = name;
-  document.getElementById("modalDesc").innerText = desc;
-  document.getElementById("modalImg").src = img;
-
-  let modal = new bootstrap.Modal(document.getElementById('cardModal'));
-  modal.show();
-}
 </script>
 
 </body>
