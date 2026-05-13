@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>About Us</title>
 
   <meta charset="UTF-8">
@@ -10,55 +11,207 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <style>
+
     body{
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
-    }
-
-    .about-box{
-      background:rgba(255,255,255,0.05);
-      padding:40px;
-      border-radius:20px;
-      box-shadow:0 0 20px rgba(199,125,255,0.3);
+      font-family:Arial, sans-serif;
     }
 
     .glow{
       text-shadow:0 0 10px #c77dff;
     }
+
+    /* NAVBAR */
+
+    .navbar{
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-link{
+      color:white !important;
+      transition:0.3s;
+    }
+
+    .nav-link:hover{
+      color:#c77dff !important;
+      text-shadow:0 0 10px #c77dff;
+    }
+
+    /* ABOUT BOX */
+
+    .about-box{
+      background:rgba(255,255,255,0.05);
+      padding:50px;
+      border-radius:25px;
+      box-shadow:0 0 25px rgba(199,125,255,0.3);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .about-icon{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .btn-tarot{
+      background:linear-gradient(135deg,#7b2cbf,#5a189a);
+      color:white;
+      border:none;
+      padding:12px 25px;
+      border-radius:30px;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:20px;
+      transition:0.3s;
+    }
+
+    .btn-tarot:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px #c77dff;
+      color:white;
+    }
+
+    footer{
+      margin-top:60px;
+      background:#0d001f;
+      padding:20px;
+      text-align:center;
+    }
+
   </style>
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
   <div class="container">
-    <a href="index.html" class="navbar-brand glow">🔮 Tarot World</a>
+
+    <a href="index.html" class="navbar-brand glow">
+      🔮 Tarot World
+    </a>
+
+    <!-- MOBILE BUTTON -->
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="features.html">
+            Features
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="about.html">
+            About Us
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pricing.html">
+            Pricing
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="card.html">
+            Cards
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            Reading
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
   </div>
+
 </nav>
 
+<!-- ABOUT -->
 <div class="container py-5">
 
   <div class="about-box text-center">
 
-    <h1 class="glow mb-4">🌌 About Tarot World</h1>
+    <div class="about-icon">
+      🌌
+    </div>
+
+    <h1 class="glow mb-4">
+      About Tarot World
+    </h1>
 
     <p class="lead">
-      Tarot World is an interactive website that allows users
-      to explore tarot cards in a mystical and aesthetic way.
+
+      Tarot World is an interactive mystical website
+      designed for users to explore tarot cards
+      in a fun, magical, and aesthetic experience.
+
     </p>
 
     <p>
-      This website was created using HTML, CSS, JavaScript,
-      and Bootstrap to provide a responsive and engaging user experience.
+
+      This website was created using
+      HTML, CSS, JavaScript, and Bootstrap
+      to provide responsive design,
+      smooth navigation, and interactive features.
+
     </p>
 
     <p>
-      Created by Patricia Verlita ✨
+
+      Users can explore tarot galleries,
+      discover mystical readings,
+      and enjoy beautiful glowing animations.
+
     </p>
+
+    <h4 class="mt-4 glow">
+      ✨ Created by Patricia Verlita ✨
+    </h4>
+
+    <a href="profile.html" class="btn-tarot">
+      Start Your Reading
+    </a>
 
   </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+
+  ✨ Tarot World | Explore Your Destiny
+
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
