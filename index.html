@@ -1,184 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Tarot World</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <style>
-    body {
+
+    body{
       margin:0;
       background: radial-gradient(circle, #240046, #10002b);
       color:white;
       overflow-x:hidden;
+      font-family:Arial, sans-serif;
     }
 
-    canvas {
+    canvas{
       position:fixed;
       top:0;
       left:0;
       z-index:-1;
     }
 
-    /* GLOW TEXT */
-    .glow {
-      text-shadow: 0 0 12px #c77dff, 0 0 25px #9d4edd;
+    section{
+      padding:90px 0;
     }
 
-    section {
-      padding:80px 0;
+    .glow{
+      text-shadow:0 0 10px #c77dff,
+                  0 0 20px #9d4edd;
     }
 
     /* NAVBAR */
-    .navbar .btn {
-      color:white;
+
+    .navbar{
+      backdrop-filter:blur(10px);
     }
 
-    .navbar .btn:hover {
-      box-shadow:0 0 12px #c77dff;
-      border-color:#c77dff;
+    .nav-link{
+      color:white !important;
+      transition:0.3s;
     }
 
-    /* TAROT BUTTON */
-    .tarot-btn {
+    .nav-link:hover{
+      color:#c77dff !important;
+      text-shadow:0 0 10px #c77dff;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .tarot-btn{
       display:inline-block;
-      padding:14px 34px;
+      padding:14px 35px;
       border-radius:40px;
       text-decoration:none;
       color:white;
-      font-weight:500;
-      background: linear-gradient(135deg, #7b2cbf, #5a189a);
-      box-shadow:0 0 20px rgba(199,125,255,0.4);
+      font-weight:bold;
+      background:linear-gradient(135deg,#7b2cbf,#5a189a);
       transition:0.3s;
+      box-shadow:0 0 20px rgba(199,125,255,0.5);
     }
 
-    .tarot-btn:hover {
+    .tarot-btn:hover{
       transform:scale(1.05);
-      box-shadow:0 0 25px rgba(199,125,255,0.8);
+      box-shadow:0 0 30px rgba(199,125,255,0.9);
       color:white;
     }
 
-    /* CARD AESTHETIC */
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      transition:0.3s;
+    /* CARD */
+
+    .custom-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      border-radius:20px;
+      padding:30px;
+      transition:0.4s;
+      height:100%;
     }
 
-    .card:hover {
-      transform:scale(1.07);
+    .custom-card:hover{
+      transform:translateY(-8px);
       box-shadow:0 0 25px #c77dff;
     }
 
-    /* TEXT DALAM CARD */
-    .card h4, .card p {
-      color:#f1e9ff;
+    .custom-card h3{
+      margin-bottom:15px;
+    }
+
+    footer{
+      background:#0d001f;
+      padding:20px;
+      text-align:center;
+      margin-top:50px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:45px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
     }
 
   </style>
+
 </head>
 
 <body>
 
+<!-- STAR BACKGROUND -->
 <canvas id="stars"></canvas>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
   <div class="container">
-    <a class="navbar-brand glow" href="#">🔮 Tarot World</a>
-    <div>
-      <a href="#features" class="btn btn-outline-light btn-sm mx-1">Features</a>
-      <a href="#about" class="btn btn-outline-light btn-sm mx-1">About</a>
-      <a href="#contact" class="btn btn-outline-light btn-sm mx-1">Contact</a>
+
+    <a class="navbar-brand glow" href="index.html">
+      🔮 Tarot World
+    </a>
+
+    <!-- MOBILE BUTTON -->
+    <button class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#menu">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="features.html">
+            Features
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            About Us
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pricing.html">
+            Pricing
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="card.html">
+            Cards
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            Reading
+          </a>
+        </li>
+
+      </ul>
+
     </div>
+
   </div>
+
 </nav>
 
 <!-- HERO -->
-<section class="text-center">
+<section class="hero">
+
   <div class="container">
-    <h1 class="display-3 glow">Discover Your Fate</h1>
-    <p class="lead">Explore mystical tarot cards and reveal your destiny</p>
-    <a href="profile.html" class="tarot-btn mt-3">Start Reading ✨</a>
-  </div>
-</section>
 
-<!-- FEATURES -->
-<section id="features">
-  <div class="container text-center">
-    <h2 class="glow mb-4">✨ Features</h2>
+    <h1 class="display-2 glow">
+      Discover Your Fate
+    </h1>
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h4>🔮 Tarot Reading</h4>
-          <p>Pick a card and discover your future</p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h4>🃏 Card Gallery</h4>
-          <p>Explore beautiful tarot cards</p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h4>✨ Interactive</h4>
-          <p>Fun animations & game experience</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container text-center">
-    <h2 class="glow mb-4">🌌 About Us</h2>
-    <p>
-      Tarot World is a mystical platform designed to explore tarot cards 
-      in a fun, interactive, and aesthetic way.
+    <p class="lead mt-3">
+      Explore mystical tarot cards and reveal your destiny
     </p>
+
+    <a href="profile.html" class="tarot-btn mt-4">
+      Start Reading ✨
+    </a>
+
   </div>
+
 </section>
 
-<!-- PRICING -->
+<!-- FEATURES PREVIEW -->
 <section>
-  <div class="container text-center">
-    <h2 class="glow mb-4">💎 Pricing</h2>
 
-    <div class="row justify-content-center">
+  <div class="container">
+
+    <h2 class="text-center glow mb-5">
+      ✨ Main Features
+    </h2>
+
+    <div class="row g-4">
+
       <div class="col-md-4">
-        <div class="card p-3">
-          <h4>Free</h4>
-          <p>Basic tarot reading</p>
+
+        <div class="custom-card text-center">
+
+          <h3>🔮 Tarot Reading</h3>
+
+          <p>
+            Reveal your past, present, and future
+            through interactive tarot cards.
+          </p>
+
         </div>
+
       </div>
 
       <div class="col-md-4">
-        <div class="card p-3">
-          <h4>Premium</h4>
-          <p>Advanced insight (coming soon)</p>
+
+        <div class="custom-card text-center">
+
+          <h3>🃏 Card Gallery</h3>
+
+          <p>
+            Explore mystical tarot collections
+            with beautiful visuals.
+          </p>
+
         </div>
+
       </div>
+
+      <div class="col-md-4">
+
+        <div class="custom-card text-center">
+
+          <h3>✨ Interactive Design</h3>
+
+          <p>
+            Smooth animation and aesthetic
+            magical atmosphere.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section>
+
+  <div class="container text-center">
+
+    <h2 class="glow mb-4">
+      🌌 About Tarot World
+    </h2>
+
+    <p class="lead">
+      Tarot World is a mystical and interactive website
+      created to provide a fun tarot reading experience.
+    </p>
+
+    <a href="about.html"
+    class="btn btn-outline-light mt-3">
+      Learn More
+    </a>
+
+  </div>
+
+</section>
+
+<!-- PRICING PREVIEW -->
+<section>
+
+  <div class="container">
+
+    <h2 class="text-center glow mb-5">
+      💎 Pricing Plans
+    </h2>
+
+    <div class="row justify-content-center g-4">
+
+      <div class="col-md-4">
+
+        <div class="custom-card text-center">
+
+          <h3>Free</h3>
+
+          <h4>$0</h4>
+
+          <p>Basic tarot reading experience.</p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="custom-card text-center">
+
+          <h3>Premium</h3>
+
+          <h4>$9</h4>
+
+          <p>Exclusive cards and deeper insights.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section>
+
   <div class="container text-center">
-    <h2 class="glow mb-4">📞 Contact</h2>
-    <p>By Patricia Verlita</p>
-    <p>Email: mahuru.ur@gmail.com</p>
+
+    <h2 class="glow mb-4">
+      📞 Contact
+    </h2>
+
+    <p>
+      By Patricia Verlita
+    </p>
+
+    <p>
+      Email: mahuru.ur@gmail.com
+    </p>
+
   </div>
+
 </section>
+
+<!-- FOOTER -->
+<footer>
+
+  <p>
+    ✨ Tarot World | Created with Bootstrap & JavaScript
+  </p>
+
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- STAR ANIMATION -->
 <script>
+
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
@@ -188,51 +389,67 @@ canvas.height = window.innerHeight;
 let stars = [];
 
 for(let i=0;i<120;i++){
+
   stars.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    size: Math.random()*2,
-    speed: Math.random()*0.3,
-    opacity: Math.random(),
-    fade: Math.random()*0.02
+
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    size:Math.random()*2,
+    speed:Math.random()*0.3,
+    opacity:Math.random(),
+    fade:Math.random()*0.02
+
   });
+
 }
 
 function draw(){
+
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
   stars.forEach(s=>{
-    // twinkle effect
+
     s.opacity += s.fade;
 
     if(s.opacity <= 0 || s.opacity >= 1){
+
       s.fade *= -1;
+
     }
 
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.size, 0, Math.PI*2);
-    ctx.fillStyle = "rgba(255,255,255," + s.opacity + ")";
+
+    ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
+
+    ctx.fillStyle =
+    "rgba(255,255,255," + s.opacity + ")";
+
     ctx.fill();
 
-    // gerak pelan ke bawah
     s.y += s.speed;
 
     if(s.y > canvas.height){
+
       s.y = 0;
       s.x = Math.random()*canvas.width;
+
     }
+
   });
 
   requestAnimationFrame(draw);
+
 }
 
 draw();
 
-// RESPONSIVE
-window.addEventListener("resize", ()=>{
+window.addEventListener("resize",()=>{
+
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
 });
+
 </script>
 
 </body>
